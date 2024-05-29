@@ -7,7 +7,9 @@ import guru.springframework.spring6restclient.model.BeerStyle;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -108,7 +110,8 @@ public class BeerClientImpl implements BeerClient {
 
         restClient.delete()
                 .uri(uriBuilder -> uriBuilder.path(GET_BEER_BY_ID_PATH).build(beerId))
-                .retrieve();
+                .retrieve().body(String.class);
+
     }
 }
 
