@@ -50,6 +50,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 /**
  * Created by jt, Spring Framework Guru.
@@ -163,7 +165,7 @@ public class BeerClientMockTest {
             beerClient.deleteBeer(dto.getId());
         });
 
-        server.verify();
+         server.verify();
     }
 
     @Test
